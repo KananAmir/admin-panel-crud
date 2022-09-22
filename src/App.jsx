@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import HomePage from './pages/home-page'
 import './App.css'
+import Header from './layouts/header'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      React Vite - Admin Panel CRUD
+      <Header />
+      <HomePage />
     </div>
   )
 }

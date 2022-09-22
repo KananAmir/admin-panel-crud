@@ -1,0 +1,23 @@
+#header {
+    padding: 20px;
+    background-color: #282a35;
+    color: #fff;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h1 {
+            color: #fff;
+        }
+        nav {
+            a {
+                display: inline-block;
+                margin: 0 20px;
+                color: #fff;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
