@@ -21,6 +21,7 @@ const AddProduct = () => {
   });
 
   return (
+<<<<<<< HEAD
     <div id='add-product'>
       <form id='product-form' onSubmit={handleSubmit}>
         <TextField
@@ -45,6 +46,10 @@ const AddProduct = () => {
         <Button type='submit' variant="contained">Add Product</Button>
 
       </form>
+=======
+    <div>
+      
+>>>>>>> 4338d69c8e6cc7369666f906785be17a84067b5a
     </div>
   )
 }
