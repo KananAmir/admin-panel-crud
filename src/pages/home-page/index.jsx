@@ -25,7 +25,7 @@ const HomePage = () => {
     }, [])
 
     const handleDelete = (id) => {
-        // deleteProduct(id).then(() => { getData() });
+        deleteProduct(id).then(() => getProducts().then(res => setproducts(res)))
     }
 
 
@@ -36,11 +36,11 @@ const HomePage = () => {
                 <TableHead>
                     <TableRow>
                         <TableCell>Id</TableCell>
-                        <TableCell align="right">Product Name</TableCell>
-                        <TableCell align="right">Price</TableCell>
-                        <TableCell align="right">Supplier Contact Name</TableCell>
-                        <TableCell align="right">Add Product</TableCell>
-                        <TableCell align="right">Delete Product</TableCell>
+                        <TableCell align="left">Product Name</TableCell>
+                        <TableCell align="left">Price</TableCell>
+                        <TableCell align="left">Supplier Contact Name</TableCell>
+                        <TableCell align="left">Edit Product</TableCell>
+                        <TableCell align="left">Delete Product</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -52,11 +52,11 @@ const HomePage = () => {
                             <TableCell component="th" scope="row">
                                 {product.id}
                             </TableCell>
-                            <TableCell align="right">{product.name}</TableCell>
-                            <TableCell align="right">{product.unitPrice}</TableCell>
-                            <TableCell align="right">{product?.supplier?.contactName}</TableCell>
-                            <TableCell align="right"><Button variant="contained" style={{backgroundColor:"#10b981",color:"white"}}>Edit</Button></TableCell>
-                            <TableCell align="right"><Button variant="contained" style={{backgroundColor:"#e11d48",color:"white"}}>Delete</Button></TableCell>
+                            <TableCell align="left">{product.name}</TableCell>
+                            <TableCell align="left">{product.unitPrice}</TableCell>
+                            <TableCell align="left">{product?.supplier?.contactName}</TableCell>
+                            <TableCell align="left"><Button variant="contained" style={{ backgroundColor: "#10b981", color: "white" }}>Edit</Button></TableCell>
+                            <TableCell align="left"><Button variant="contained" style={{ backgroundColor: "#e11d48", color: "white" }} onClick={() => handleDelete(product.id)} >Delete</Button></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

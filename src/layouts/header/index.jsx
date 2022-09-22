@@ -10,7 +10,7 @@ const Header = () => {
           <h1 className='text-4xl font-extrabold tracking-widest'>Products</h1>
         </Link>
         <nav className='text-xl font-extrabold tracking-widest'>
-          <Link to='add-product'>Add Product</Link>
+          <Link to='/add-product'>Add Product</Link>
         </nav>
       </div>
     </div>
