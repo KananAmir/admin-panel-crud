@@ -3,7 +3,15 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import './index.scss'
 import { deleteProduct, getProducts } from '../../services/productService';
-import Spinner from '../../components/spinner';
+
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
 const HomePage = () => {
 
@@ -20,42 +28,42 @@ const HomePage = () => {
         // deleteProduct(id).then(() => { getData() });
     }
 
-    return (
-        <div id='home-page' className='grid place-items-center'>
-            {isLoading
-                ?
-                <Spinner />
-                :
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Product Id</th>
-                            <th>Product Name</th>
-                            <th>Products Price</th>
-                            <th>Products Quantity per Unit</th>
-                            <th>Edit Product</th>
-                            <th>Delete Product</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {products && products.map(product => (
-                            <tr key={product.id} >
-                                <td>{product.id}</td>
-                                <td>{product.name}</td>
-                                <td> {product.unitPrice}</td>
-                                <td> {product.quantityPerUnit}</td>
-                                {/* <td> <Link to={`${product.id}`}>Link to product</Link></td> */}
-                                {/* <td> <Link to={`${product.id}`}>Link to product</Link></td> */}
-                                <td style={{ color: 'green', fontWeight: '600' }}>Edit</td>
-                                <td style={{ color: 'red', fontWeight: '600' }} onClick={() => handleDelete(product.id)}>Delete</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            }
 
-        </div>
-    )
+
+    return (
+        <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <TableHead>
+                    <TableRow>
+                        <TableCell>Id</TableCell>
+                        <TableCell align="right">Product Name</TableCell>
+                        <TableCell align="right">Price</TableCell>
+                        <TableCell align="right">Supplier Contact Name</TableCell>
+                        <TableCell align="right">Add Product</TableCell>
+                        <TableCell align="right">Delete Product</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {products && products.map((product) => (
+                        <TableRow
+                            key={product.id}
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                        >
+                            <TableCell component="th" scope="row">
+                                {product.id}
+                            </TableCell>
+                            <TableCell align="right">{product.name}</TableCell>
+                            <TableCell align="right">{product.unitPrice}</TableCell>
+                            <TableCell align="right">{product?.supplier?.contactName}</TableCell>
+                            <TableCell align="right"><Button variant="contained" style={{backgroundColor:"#10b981",color:"white"}}>Edit</Button></TableCell>
+                            <TableCell align="right"><Button variant="contained" style={{backgroundColor:"#e11d48",color:"white"}}>Delete</Button></TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </TableContainer>
+    );
 }
+
 
 export default HomePage
