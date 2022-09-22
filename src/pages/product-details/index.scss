@@ -1,0 +1,22 @@
+#product-detail {
+    ul {
+        li {
+            font-weight: bold;
+            font-size: 20px;
+            span {
+                font-weight: 400;
+            }
+        }
+    }
+    .add-to-card {
+        padding: 10px 40px;
+        width: auto;
+        background: #1abc9c;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 20px 10px;
+    }
+}

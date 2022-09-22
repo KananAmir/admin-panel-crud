@@ -1,0 +1,9 @@
+#spinner {
+  margin: 20px;
+  padding: 30px;
+  text-align: center;
+}
+#spinner .ant-space {
+  display: flex;
+  justify-content: center;
+}/*# sourceMappingURL=index.css.map */
