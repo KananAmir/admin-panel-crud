@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { useNavigate } from 'react-router-dom';
 import Spinner from '../../components/spinner';
 import { getProductsDetail } from '../../services/productService';
+import Button from '@material-ui/core/Button';
 import './index.scss'
 
 
@@ -10,7 +11,7 @@ function ProductDetail() {
 
   const [product, setproducts] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  
+
 
   let { id } = useParams();
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ function ProductDetail() {
             <li>Price: <span>{product?.price}</span></li>
             <li>Supplier Contact Name: <span>{product?.supplierContactName}</span></li>
           </ul>
-          <button className='px-8 py-3 bg-[#1A2238] border border-current text-white mt-6' onClick={() => navigate('/')}>Go back</button>
+          <Button variant="contained" style={{ backgroundColor: "#d18d48", color: "white" }} onClick={() => navigate('/')} >Go Back</Button>
         </>
       }
 

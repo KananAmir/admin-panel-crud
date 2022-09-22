@@ -8,13 +8,13 @@ import { useNavigate, useParams } from 'react-router';
 import './index.scss'
 
 const EditProduct = () => {
-  const [product, setproduct] = useState({});
+  const [product, setproducts] = useState({});
 
   let { id } = useParams();
   const navigate = useNavigate();
 
   const getProduct = async () => {
-    setroducts(await getProductsDetail(id));
+    setproducts(await getProductsDetail(id));
   }
 
   useEffect(() => {
@@ -67,7 +67,7 @@ const EditProduct = () => {
         />
         <br />
         <br />
-        <Button type='submit' variant="contained">Edit Product</Button>
+        <Button type='submit' variant="contained" style={{ backgroundColor: "#10b981", color: "white" }}>Edit Product</Button>
 
       </form>
     </div>
